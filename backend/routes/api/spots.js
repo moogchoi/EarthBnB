@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Spot, Review, SpotImage, sequelize } = require('../../db/models');
+const { Spot, User, Review, SpotImage, sequelize } = require('../../db/models');
 const { Op } = require('sequelize');
 const{ requireAuth } = require('../../utils/auth')
 
@@ -36,6 +36,7 @@ router.get('/current', requireAuth, async (req, res) => {
     }))
   res.json({ Spots: spotsWithAvgRating });
 })
+
 
 
 // get all spots

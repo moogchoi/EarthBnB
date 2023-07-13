@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Review extends Model {
     /**
@@ -12,36 +10,56 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Review.belongsTo(
-        models.User,
-        { foreignKey: 'userId' }
-      )
-
-      Review.hasMany(
-        models.ReviewImage,
-        { foreignKey: 'reviewId', onDelete: 'CASCADE', hooks: true }
+        models.Spot, {
+          foreignKey: "spotId"
+        }
       )
 
       Review.belongsTo(
-        models.Spot,
-        { foreignKey: 'spotId' }
+        models.User, {
+          foreignKey: "userId"
+        }
+      )
+
+      Review.hasMany(
+        models.ReviewImage, {
+          foreignKey: "reviewId",
+          onDelete: "CASCADE",
+          hooks: true
+        }
       )
     }
   }
   Review.init({
-    spotId: {
+    id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      type: DataTypes.INTEGER
+      primaryKey: true,
+      autoIncrement: true
+    },
+    spotId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true
+      }
     },
     userId: {
-      allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true
+      }
     },
     review: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     stars: {
-      allowNull: false,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      validate: {
+        isNumeric: true,
+        min: 1,
+        max: 5
+      }
     }
   }, {
     sequelize,
