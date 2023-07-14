@@ -4,6 +4,9 @@ const { Spot, User, Review, SpotImage, sequelize } = require('../../db/models');
 const { Op } = require('sequelize');
 const{ requireAuth } = require('../../utils/auth')
 
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+
 // get all spots owned by the current user
 router.get('/current', requireAuth, async (req, res) => {
   const userId = req.user.id;
@@ -111,5 +114,59 @@ router.get('/', async (req, res) => {
   res.json({ Spots: spotsWithAvgRating });
 })
 
+// validate post
+const validatePost = [
+  check('address')
+    .exists({ checkFalsy: true })
+    .withMessage('Street address is required'),
+  check('city')
+    .exists({ checkFalsy: true })
+    .withMessage('City is required'),
+  check('state')
+    .exists({ checkFalsy: true })
+    .withMessage('State is required'),
+  check('country')
+    .exists({ checkFalsy: true })
+    .withMessage('Country is required'),
+  check('lat')
+    .exists({ checkFalsy: true })
+    .withMessage('Latitude is not valid'),
+  check('lng')
+    .exists({ checkFalsy: true })
+    .withMessage('Longitude is not valid'),
+  check('name')
+    .exists({ checkFalsy: true })
+    .isLength({min: 1, max: 50})
+    .withMessage('Name must be between less than 50 characters'),
+  check('description')
+    .exists({ checkFalsy: true })
+    .withMessage('Description is required'),
+  check('price')
+    .exists({ checkFalsy: true })
+    .withMessage('Price per day is required'),
+  handleValidationErrors
+];
+
+// create a spot
+router.post('/', requireAuth, validatePost, async (req, res) => {
+
+  const { address, city, state, country, lat, lng, name, description, price } = req.body
+
+  const ownerId = req.user.id
+
+  const newSpot = await Spot.create({
+      ownerId,
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price
+  })
+  return res.status(201).json(newSpot)
+})
 
 module.exports = router;
