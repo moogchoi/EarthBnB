@@ -177,7 +177,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
   if (!selectedSpot) {
     res.status(404);
     res.json({
-        message: "Spot couldn't be found"
+      "message": "Spot couldn't be found"
     });
   };
 
@@ -199,6 +199,68 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     url: newSpotImage.url,
     preview: newSpotImage.preview
   });
+
+});
+
+// edit a spot
+router.put('/:spotId', requireAuth, validatePost, async (req, res) => {
+  const editSpot = await Spot.findByPk(req.params.spotId);
+  const currentUser = req.user.id;
+  const ownerId = req.user.id;
+
+  if (!editSpot) {
+    res.status(404)
+    return res.json({
+      "message": "Spot couldn't be found"
+    })
+  };
+  if(currentUser !== editSpot.ownerId) {
+    res.status(403).json({
+        "message": "Spot must belong to the current user"
+    });
+  };
+
+  const { address, city, state, country, lat, lng, name, description, price } = req.body;
+
+  const editedSpot = await editSpot.update({
+      ownerId,
+      address,
+      city,
+      state,
+      country,
+      lat,
+      lng,
+      name,
+      description,
+      price
+  })
+  res.json(editedSpot);
+
+});
+
+// delete a spot
+router.delete('/:spotId', requireAuth, async (req, res) => {
+  const currentUser = req.user.id;
+  const deleteSpot = await Spot.findByPk(req.params.spotId);
+
+  if (!deleteSpot) {
+    res.status(404)
+    return res.json({
+      "message": "Spot couldn't be found"
+    })
+  };
+
+  if(currentUser !== editSpot.ownerId) {
+    res.status(403).json({
+        "message": "Spot must belong to the current user"
+    });
+  };
+
+  await deleteSpot.destroy();
+
+  res.json({
+    "message": "Successfully deleted"
+  })
 
 });
 
