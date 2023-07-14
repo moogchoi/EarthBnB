@@ -250,7 +250,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
     })
   };
 
-  if(currentUser !== editSpot.ownerId) {
+  if(currentUser !== deleteSpot.ownerId) {
     res.status(403).json({
         "message": "Spot must belong to the current user"
     });
