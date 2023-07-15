@@ -28,7 +28,8 @@ router.get('/current', requireAuth, async (req, res) => {
       });
 
       return {
-        ...booking.get(),
+        id: booking.id,
+        spotId: booking.spotId,
         Spot: {
           id: spot.id,
           ownerId: spot.ownerId,
@@ -41,14 +42,19 @@ router.get('/current', requireAuth, async (req, res) => {
           name: spot.name,
           description: spot.description,
           price: spot.price,
-          previewImage: images.length > 0 ? images[0].url : null,
-      }
-      }
+          previewImage: images.length > 0 ? images[0].url : null
+        },
+        userId: booking.userId,
+        startDate: booking.startDate,
+        endDate: booking.endDate,
+        createdAt: booking.createdAt,
+        updatedAt: booking.updatedAt
+      };
     })
-  )
+  );
 
   res.json({ Bookings: allBookingsWithPreviewImage });
-})
+});
 
 
 
