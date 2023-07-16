@@ -7,6 +7,7 @@ const{ requireAuth } = require('../../utils/auth')
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
+
 // get all spots owned by the current user
 router.get('/current', requireAuth, async (req, res) => {
   const userId = req.user.id;
@@ -87,6 +88,42 @@ router.get('/:spotId', async (req, res) => {
 
 // get all spots
 router.get('/', async (req, res) => {
+  let { page, size, maxLat, minLat, minLng, maxLng, minPrice, maxPrice } = req.query
+
+  const errors = {};
+
+  if (page < 1) errors.page = "Page must be greater than or equal to 1";
+  if (size < 1) errors.size = "Size must be greater than or equal to 1";
+
+  if (minLat < -90)
+      errors.minLat = "Minimum latitude is invalid";
+  if (maxLat > 90)
+      errors.maxLat = "Maximum latitude is invalid";
+  if (minLng < -180)
+      errors.minLng = "Minimum longitude is invalid";
+  if (maxLng > 180)
+      errors.maxLng = "Maximum longitude is invalid";
+
+  if (minPrice < 0)
+      errors.minPrice = "Minimum price must be greater than or equal to 0";
+  if (maxPrice < 0)
+      errors.maxPrice = "Maximum price must be greater than or equal to 0";
+
+  if (Object.keys(errors).length > 0) {
+      return res.status(400).json({
+          message: "Bad Request",
+          errors: errors
+      })
+  }
+
+  let pagination = {}
+  const pageNum = req.query.page === undefined ? 1 : parseInt(req.query.page);
+  const sizeNum = req.query.size === undefined ? 20 : parseInt(req.query.size);
+  if (pageNum >= 1 && sizeNum >= 1) {
+    pagination.limit = sizeNum;
+    pagination.offset = sizeNum * (pageNum - 1);
+  }
+
   const allSpots = await Spot.findAll();
 
   const spotsWithAvgRating = await Promise.all(
@@ -111,7 +148,7 @@ router.get('/', async (req, res) => {
         previewImage: images.length > 0 ? images[0].url : null,
       }
     }))
-  res.json({ Spots: spotsWithAvgRating });
+  res.json({ Spots: spotsWithAvgRating, page: pageNum, size: sizeNum });
 })
 
 // validate post
@@ -386,7 +423,7 @@ const validateBookingDates = (req, res, next) => {
 // create a booking based on the spot's id
 router.post('/:spotId/bookings', requireAuth, validateBookingDates, async (req, res) => {
   const { startDate, endDate } = req.body
-  let bookingSpot = await Spot.findByPk(req.params.spotId);
+  const bookingSpot = await Spot.findByPk(req.params.spotId);
 
   if (!bookingSpot) {
     return res.status(404).json({"message": "Spot couldn't be found"})
