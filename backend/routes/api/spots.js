@@ -238,7 +238,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     preview
   });
 
-  res.json({
+  return res.json({
     id: newSpotImage.id,
     url: newSpotImage.url,
     preview: newSpotImage.preview
@@ -277,7 +277,7 @@ router.put('/:spotId', requireAuth, validatePost, async (req, res) => {
       description,
       price
   })
-  res.json(editedSpot);
+  return res.json(editedSpot);
 
 });
 

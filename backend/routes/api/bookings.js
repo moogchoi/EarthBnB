@@ -54,7 +54,7 @@ router.get('/current', requireAuth, async (req, res) => {
     })
   );
 
-  res.json({ Bookings: allBookingsWithPreviewImage });
+  return res.json({ Bookings: allBookingsWithPreviewImage });
 });
 
 // validate booking dates
