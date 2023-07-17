@@ -80,7 +80,7 @@ router.get('/current', requireAuth, async (req, res) => {
     };
   });
 
-  res.json({ Reviews: formattedReviews });
+  return res.json({ Reviews: formattedReviews });
 });
 
 // add an image to a review based on the review's id
@@ -88,14 +88,12 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
   const review = await Review.findByPk(req.params.reviewId);
 
   if (!review) {
-    res.status(404);
-    res.json({
+    return res.status(404).json({
       "message": "Review couldn't be found"
     })
   }
   if (review.userId !== req.user.id) {
-    res.status(403);
-    res.json({
+    return res.status(403).json({
       "message": "Review must belong to the current user"
     })
   }
@@ -103,8 +101,7 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     where: { reviewId: req.params.reviewId}
   })
   if (reviewImageCount > 10){
-    res.status(403);
-    res.json({
+    return res.status(403).json({
       "message": "Maximum number of images for this resource was reached"
     })
   }
@@ -133,8 +130,7 @@ router.put('/:reviewId', reviewValidator, requireAuth, async (req, res) => {
   }
 
   if (review.userId !== req.user.id) {
-    res.status(403);
-    res.json({
+    return res.status(403).json({
       "message": "Review must belong to the current user"
     })
   }
@@ -143,7 +139,7 @@ router.put('/:reviewId', reviewValidator, requireAuth, async (req, res) => {
     review: req.body.review,
     stars: req.body.stars
   })
-  res.json(updateReview)
+  return res.json(updateReview)
 });
 
 // delete a review
@@ -155,14 +151,13 @@ router.delete('/:reviewId', requireAuth, async (req, res, next) => {
   }
 
   if (review.userId !== req.user.id) {
-    res.status(403);
-    res.json({
+    return res.status(403).json({
       "message": "Review must belong to the current user"
     })
   }
 
   await review.destroy()
-  res.json({
+  return res.json({
     "message": "Successfully deleted"
   })
 });
