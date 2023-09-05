@@ -85,17 +85,16 @@ const SpotDetails = () => {
             key={index} src={image.url} alt={`${spot.name} ${index + 1}`} />
         ))}
       </div>
-      <div className="spotInfo">
-        <div className="owner_des">
-          <div className="ownerInfo">Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</div>
-          <div className="spotDescription">{spot.description}</div>
+      <div>
+        <div>
+          <div>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</div>
+          <div>{spot.description}</div>
         </div>
-        <div className="price_reserveButContainer">
-
-          <div className="priceAndReviews">
+        <div>
+          <div>
             <div>${spot.price} night</div>
 
-            <div className="reviewsStar"> <i className="fa-solid fa-star"></i> {spot.avgRating}
+            <div> <i className="fa-solid fa-star"></i> {spot.avgRating}
               {spot.numReviews > 1
                 ? <span> &#x2022; {spot.numReviews} reviews</span>
                 : spot.numReviews === 1
@@ -103,28 +102,25 @@ const SpotDetails = () => {
                   : <span> New</span>
               }</div>
           </div>
-          <div className="resBut">
-          </div>
         </div>
       </div>
 
       <div className="reviews">
-        <span><h1><i className="fa-solid fa-star"></i> {spot.avgRating}     {spot.numReviews > 1
+        <span><p><i className="fa-solid fa-star"></i> {spot.avgRating}     {spot.numReviews > 1
           ? <span>&#x2022; {spot.numReviews} reviews</span>
           : spot.numReviews === 1
             ? <span>&#x2022;  {spot.numReviews} review</span>
             : <span> New <h2>Be the first to post a review!</h2></span>
-        }</h1></span>
+        }</p></span>
 
         {postReviewButton}
 
         {Array.isArray(reviews) && [...reviews].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((review, index) => (
           <div key={index}>
-            <div className="nametext">{review.User?.firstName} {review.User?.lastName}</div> <div className="date"><div>{new Date(review?.createdAt).toISOString().split('T')[0]}</div></div>
-            <div className="reviewcss"> {review?.review}</div>
+            <div>{review.User?.firstName} {review.User?.lastName}</div> <div><div>{new Date(review?.createdAt).toISOString().split('T')[0]}</div></div>
+            <div> {review?.review}</div>
             {sessionUser && sessionUser.id === review.userId && (
               <OpenModalButton
-                className="deleteReviewButton"
                 modalComponent={<DeleteReviewModal reviewId={review.id} onReviewDelete={handleReviewDelete} setHasReview={setHasReview} />}
                 buttonText="Delete Review"
 

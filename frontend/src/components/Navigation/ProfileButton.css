@@ -1,0 +1,54 @@
+.homeButton{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+.button{
+  border-radius: 12px;
+  background-color: white;
+  margin-top: 5px;
+
+}
+.manSpot{
+background-color: rgb(200, 71, 12);
+  color: white;
+  width: 105px;
+  height: 25px;
+  border-radius: 5px;
+  margin: 3px;
+
+}
+.manSpot2{
+  background-color: rgb(200, 71, 12);
+     color: white;
+     width: 105px;
+     height: 25px;
+     border-radius: 5px;
+     margin: 3px;
+ }
+.buttonArea{
+  padding: 10px;
+  gap: 5px;
+
+}
+
+.dropdown{
+  list-style-type: none;
+
+}
+
+.bars{
+  padding-right: 8px;
+}
+
+li {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+
+}
+
+#manageId{
+  padding-bottom: 15px;
+  padding-right: 15px;
+
+}

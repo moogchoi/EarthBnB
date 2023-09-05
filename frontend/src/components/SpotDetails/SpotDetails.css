@@ -1,0 +1,21 @@
+
+.spotImages{
+    width: 100%;
+    height: 380x;
+    display: grid;
+    grid-template-rows: 150px 150px;
+    grid-template-columns: 500px 140px 140px;
+    grid-gap: 5px;
+}
+
+.large-image{
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}

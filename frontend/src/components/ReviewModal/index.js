@@ -34,10 +34,10 @@ function ReviewModal({ spotId, setHasReview }) {
   return (
     <div className="reviewModalContainer">
       <form onSubmit={handleSubmit}>
-        <h3 className="stay">How was your stay?</h3>
+        <p>How was your stay?</p>
         <>{errors.message}</>
         <label>
-          <textarea className="reviewArea"
+          <textarea
             value={review}
             rows="6"
             onChange={(e) => setReview(e.target.value)}
@@ -47,9 +47,8 @@ function ReviewModal({ spotId, setHasReview }) {
         <div className="stars">
           <StarRating onChange={starSelect} starRating={starRating}>Stars</StarRating>
         </div>
-        <div className="submitRating">
-          <button type="submit"
-            className="submitReviewButton"
+        <div>
+          <button
             disabled={submitReviewDisabled}
           >Submit Your Review</button>
         </div>
