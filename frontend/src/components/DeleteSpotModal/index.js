@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import "./DeleteSpotModal.css"
-import { deleteUserSpot } from "../../store/spots";
+import { fetchDeleteSpot } from "../../store/spots";
 
 function DeleteSpotModal({ spotId, closeModal }) {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function DeleteSpotModal({ spotId, closeModal }) {
         <p className="deleteConfirm">Are you sure you want to remove this spot from the listings?</p>
         <div className="deleteButton">
           <button className='delete' onClick={() => {
-            dispatch(deleteUserSpot(spotId))
+            dispatch(fetchDeleteSpot(spotId))
               .then(closeModal)
           }}
           >Yes (Delete Spot)</button></div>

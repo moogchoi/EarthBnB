@@ -24,18 +24,19 @@ function App() {
         <Route exact path='/'>
           <SpotIndex />
         </Route>
-        <Route exact path='/spots/:spotId'>
-          <SpotDetails />
-        </Route>
         <Route exact path='/spots/new'>
           <CreateSpotForm />
         </Route>
         <Route exact path='/spots/current'>
           <ManageSpots />
         </Route>
-        <Route exact path='/spots/:id/edit'>
+        <Route path='/spots/:id/edit'>
           <EditSpotForm />
         </Route>
+        <Route path='/spots/:spotId'>
+          <SpotDetails />
+        </Route>
+
       </Switch>}
     </>
   );
