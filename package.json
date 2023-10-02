@@ -19,13 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moogchoi/EarthBnB.git"
+    "url": "git+https://github.com/moogchoi/Homebnb.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/moogchoi/EarthBnB/issues"
+    "url": "https://github.com/moogchoi/Homebnb/issues"
   },
-  "homepage": "https://github.com/moogchoi/EarthBnB#readme"
+  "homepage": "https://github.com/moogchoi/HomebnbB#readme"
 }
