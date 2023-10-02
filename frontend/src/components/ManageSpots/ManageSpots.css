@@ -2,6 +2,7 @@
   font-family: 'Inter';
   margin-left: 50px;
   margin-right: 50px;
+
 }
 
 .spotsHeader {
@@ -27,9 +28,6 @@
   margin: 2px;
 }
 
-
-
-
 .newSpot {
   box-shadow: 2px 2px 3px;
   background-color: maroon;
@@ -40,4 +38,22 @@
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 20px;
+}
+
+.price {
+  text-decoration: none;
+  line-height: 0px;
+  color: black;
+}
+
+.spotLocation{
+  display: flex;
+  font-weight: 900;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.starReview {
+  margin-left: 250px;
 }
