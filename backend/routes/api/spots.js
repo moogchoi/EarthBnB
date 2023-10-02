@@ -31,7 +31,8 @@ router.get('/current', requireAuth, async (req, res) => {
         ],
         where: { spotId: spot.id }
       });
-      const avgRating = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+      const average = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+      const avgRating = parseFloat(average.toFixed(2))
       return {
         ...spot.get(),
         avgRating,
@@ -71,7 +72,8 @@ router.get('/:spotId', async (req, res) => {
     ],
     where: { spotId: foundSpot.id }
   });
-  const avgStarRating = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+  const average = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+  const avgStarRating = parseFloat(average.toFixed(2))
   foundSpot.dataValues.avgStarRating = avgStarRating
 
   const spotImages = await SpotImage.findAll(
@@ -143,7 +145,8 @@ router.get('/', async (req, res) => {
         ],
         where: { spotId: spot.id }
       });
-      const avgRating = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+      const average = avgRatingResult ? avgRatingResult.dataValues.avgRating : null;
+      const avgRating = parseFloat(average.toFixed(2))
       return {
         ...spot.get(),
         avgRating,
