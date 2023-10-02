@@ -114,9 +114,9 @@ const SpotDetails = () => {
 
 						<div className='reviewsStar'>
 							{spot.numReviews > 1 ? (
-								<span><i className='fa-solid fa-star'></i> {spot.avgStarRating.toFixed(2)} {spot.numReviews} reviews</span>
+								<span><i className='fa-solid fa-star'></i> {spot.avgStarRating.} {spot.numReviews} reviews</span>
 							) : spot.numReviews === 1 ? (
-								<span><i className='fa-solid fa-star'></i> {spot.avgStarRating.toFixed(2)} {spot.numReviews} review</span>
+								<span><i className='fa-solid fa-star'></i> {spot.avgStarRating} {spot.numReviews} review</span>
 							) : (
 								<span><i className='fa-solid fa-star'></i> New</span>
 							)}
