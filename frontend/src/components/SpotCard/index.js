@@ -14,7 +14,7 @@ const SpotCard = ({ spot }) => {
         <div className="spotInfo">
           <p className="spotLocation">{`${spot.city}, ${spot.state}`}</p>
           <p className="spotRating">{spot.avgRating
-            ? <span><i className="fa-solid fa-star star-color"></i> {`${spot.avgRating.toFixed(2)}`}</span>
+            ? <span><i className="fa-solid fa-star star-color"></i> {`${spot.avgRating}`}</span>
             : <span><i className="fa-solid fa-star star-color"></i> New</span>}</p>
             <p className="spotPrice">{`$${spot.price} night`}</p>
         </div>
