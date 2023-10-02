@@ -1,3 +1,4 @@
+// frontend/src/components/LoginFormModal/index.js
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
@@ -24,42 +25,55 @@ function LoginFormModal() {
       });
   };
 
+   const loginDisabled = credential.length < 4 || password.length < 6;
+
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
+    <div className="loginScreen">
+      <h1 className="loginDisplay">Log In</h1>
+      <form id='loginForm' onSubmit={handleSubmit}>
+
+
+          <input className="loginInput"
             type="text"
+            placeholder="Username or Email"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
-        </label>
-        <label>
-          Password
+
+    <br></br>
+
           <input
             type="password"
+            placeholder="Password"
+            className="loginInput"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </label>
+          /><br></br>
+
         {errors.credential && (
-          <p>{errors.credential}</p>
+          <p className="errorMsg">{errors.credential}</p>
         )}
-        <button type="submit">Log In</button>
+        <button
+          className="loginSubmit"
+          disabled={credential.length < 4 || password.length < 6}
+          type="submit"
+        >
+          Log In
+        </button>
       </form>
-      <button className="demoUser"
-        onClick={() => {
-          setCredential('Demo-lition');
-          setPassword('password');
-          dispatch(sessionActions.login({ credential: 'Demo-lition', password: 'password' }))
-            .then(closeModal)
-        }}>
+      <button className="loginModal"
+       onClick={() => {
+      setCredential('Demo-lition');
+        setPassword('password');
+        dispatch(sessionActions.login({credential: 'Demo-lition', password: 'password'}))
+        .then(closeModal)
+      }}>
         Demo User
-      </button>
+        </button>
+      </div>
     </>
   );
 }

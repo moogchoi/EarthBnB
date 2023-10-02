@@ -46,7 +46,92 @@ module.exports = {
         name: 'Oracle Park',
         description: 'Home of The San Francisco Giants',
         price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
+      },
+      {
+        ownerId: 3,
+        address: '24 Willie Mays Plaza',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'United States of America',
+        lat: 37.778611,
+        lng: -122.389167,
+        name: 'Oracle Park',
+        description: 'Home of The San Francisco Giants',
+        price: 2008
       }
+
     ], {});
   },
   down: async (queryInterface, Sequelize) => {

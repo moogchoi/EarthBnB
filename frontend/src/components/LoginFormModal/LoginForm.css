@@ -1,0 +1,62 @@
+.loginScreen{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid rgb(113, 113, 113);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  font-family: 'Inter';
+}
+
+.profile-dropdown {
+  position: absolute;
+  z-index: 2;
+  right: 30px;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 6rem;
+  padding-right: 10px;
+  padding-top: 10px;
+  border-radius: 15px;
+}
+
+.loginInput{
+  width: 250px;
+  margin-bottom: 6px;
+}
+
+.loginSubmit{
+  margin-bottom: 10px;
+  background-color: rgb(200, 71, 12);
+  color: white;
+  height: 25px;
+  border-radius: 5px;
+  width: 250px;
+  margin-left: 4px;
+  margin-right: 2px;
+}
+
+.loginSubmit:disabled {
+  border: 1px solid rgb(200, 71, 12);
+  background-color: white;
+  color: rgb(200, 71, 12);
+}
+
+.loginDisplay{
+  padding-right: 17px;
+}
+
+.errorMsg{
+  font-family: 'Inter';
+  color: red;
+  font-size: 12px;
+}

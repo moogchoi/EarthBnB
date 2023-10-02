@@ -70,9 +70,10 @@ export const fetchSpotCurrentUser = () => async (dispatch) => {
   const response = await fetch('/api/spots/current');
   if (response.ok) {
     const data = await response.json();
-    dispatch(loadSpots(data))
+    const spots = data.Spots;
+
+    dispatch(loadSpots(spots))
   }
-  return response;
 }
 
 export const createSpot = (spot, spotImages) => async (dispatch) => {

@@ -1,0 +1,61 @@
+
+.starRating button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  color: #902424;
+  font-size: 1.5em;
+}
+
+.reviewModalContainer{
+  width: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  border: black 4px solid;
+  background-color: white;
+}
+
+.stay{
+  font-size: 20px;
+}
+
+.reviewArea{
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  resize: vertical;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+
+}
+
+.submitReviewButton{
+ display: block;
+ margin: 0 auto;
+ margin-bottom: 20px;
+ background-color: rgb(200, 71, 12);
+  color: white;
+  width: 150px;
+  height: 25px;
+  border-radius: 5px;
+
+}
+
+.submitReviewButton:disabled {
+  border: 1px solid rgb(200, 71, 12);
+  background-color: white;
+  color: rgb(200, 71, 12);
+}
+
+
+.stars{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}

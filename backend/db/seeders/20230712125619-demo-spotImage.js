@@ -68,6 +68,111 @@ module.exports = {
         spotId: 3,
         url: "https://media.nbcbayarea.com/2022/03/15098351595-1080pnbcstations.jpg",
         preview: false
+      },
+      {
+        spotId: 4,
+        url: "https://i.pinimg.com/736x/61/8b/b0/618bb0405611604641de5513f6ff276b.jpg",
+        preview: true
+      },
+      {
+        spotId: 4,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: "https://i.pinimg.com/736x/61/8b/b0/618bb0405611604641de5513f6ff276b.jpg",
+        preview: true
+      },
+      {
+        spotId: 5,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Citi_Field_%2848613685207%29.jpg/350px-Citi_Field_%2848613685207%29.jpg",
+        preview: true
+      },
+      {
+        spotId: 6,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Citi_Field_%2848613685207%29.jpg/350px-Citi_Field_%2848613685207%29.jpg",
+        preview: true
+      },
+      {
+        spotId: 7,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Citi_Field_%2848613685207%29.jpg/350px-Citi_Field_%2848613685207%29.jpg",
+        preview: true
+      },
+      {
+        spotId: 8,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Citi_Field_%2848613685207%29.jpg/350px-Citi_Field_%2848613685207%29.jpg",
+        preview: true
+      },
+      {
+        spotId: 9,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://i.pinimg.com/736x/61/8b/b0/618bb0405611604641de5513f6ff276b.jpg",
+        preview: true
+      },
+      {
+        spotId: 10,
+        url: "https://img.mlbstatic.com/mlb-images/image/private/t_16x9/t_w2208/mlb/buquq9hgrzv3vy84esad.jpg",
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: "https://cdn.vox-cdn.com/thumbor/cx2RJ6vvCKiySZZYl03gyehiEwM=/0x0:5760x2880/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/10454901/GettyImages_527436792.jpg",
+        preview: false
       }
     ], {});
   },

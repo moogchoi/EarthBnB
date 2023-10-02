@@ -39,14 +39,14 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <section className="homeButton">
+      <div className="homeButton">
         <button className="button" onClick={openMenu}>
           <span className="bars">
             <i className="fa-solid fa-bars"></i>
           </span>
           <i className="fa-solid fa-user-large"></i>
         </button>
-        <section className="dropdown">
+        <div className="dropdown">
           <ul id="manageId" className={ulClassName} ref={ulRef}>
             <li>Hello, {user.firstName}</li>
 
@@ -60,8 +60,8 @@ function ProfileButton({ user }) {
             </li>
 
           </ul>
-        </section>
-      </section>
+        </div>
+      </div>
     </>
   );
 }

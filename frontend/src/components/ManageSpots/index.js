@@ -5,6 +5,7 @@ import DeleteSpotModal from "../DeleteSpotModal";
 import { useModal } from "../../context/Modal";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSpotCurrentUser } from "../../store/spots";
+import './ManageSpots.css';
 
 const SpotCard = ({ spot }) => {
   const { closeModal } = useModal();
@@ -18,7 +19,7 @@ const SpotCard = ({ spot }) => {
           <div className="spotLocation">
             <h3>{`${spot.city}, ${spot.state}`}</h3>
             <h3>{spot.avgRating
-              ? <span><i className="fa-solid fa-star star-color"></i> {`${spot.avgRating}`}</span>
+              ? <span><i className="fa-solid fa-star star-color"></i> {`${spot.avgRating.toFixed(2)}`}</span>
               : <span><i className="fa-solid fa-star star-color"></i> New</span>}</h3>
           </div>
           <h3 className="price">{`$${spot.price} night`}</h3>
@@ -27,7 +28,7 @@ const SpotCard = ({ spot }) => {
           <Link to={`/spots/${spot.id}/edit`}><button className="manBut">Update</button></Link>
           <OpenModalButton
             buttonText="Delete"
-            className="manBut"
+            className="deleteBut"
             modalComponent={<DeleteSpotModal spotId={spot.id} closeModal={closeModal} />}
           />
         </div>
@@ -47,7 +48,7 @@ const ManageSpots = () => {
   if (!spots) return null;
   return (
     <>
-      <h1>Manage Spots</h1>
+      <h1 className="spotsHeader">Manage Spots</h1>
       <Link to='/spots/new'><button className="newSpot"> Create a new spot</button></Link>
       <div className="AllSpotsContainer">
         {spots.map((spot) => (

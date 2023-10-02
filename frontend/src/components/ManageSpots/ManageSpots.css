@@ -1,0 +1,43 @@
+.spotCard {
+  font-family: 'Inter';
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.spotsHeader {
+  text-decoration: none;
+  font-family: 'Inter';
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+.spotCard a {
+  font-family: 'Inter';
+  text-decoration: none;
+}
+
+.manBut {
+  box-shadow: 2px 2px 3px;
+  background-color: maroon;
+  color: white;
+  width: 65px;
+  height: 20px;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+
+
+
+.newSpot {
+  box-shadow: 2px 2px 3px;
+  background-color: maroon;
+  color: white;
+  width: 65px;
+  height: 20px;
+  border-radius: 4px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}

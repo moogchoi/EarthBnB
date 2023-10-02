@@ -13,12 +13,12 @@ function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <><section className="buttons">
+      <><div className="buttons">
         <span><NavLink to='/spots/new'><button className="createSpot">Create a new spot</button></NavLink></span>
         <li>
           <ProfileButton user={sessionUser} />
         </li>
-      </section>
+      </div>
       </>
     );
   } else {
@@ -39,15 +39,17 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <section className="ulNav">
+    <div className="navTitle">
 
       <NavLink className="EarthBnB" exact to="/">
-        EarthBnB
+        Homebnb
       </NavLink>
+
+      <img className="logo" src='https://wow.zamimg.com/uploads/screenshots/normal/611403.jpg' alt='hearthstone'/>
 
 
       {isLoaded && sessionLinks}
-    </section>
+    </div>
   );
 }
 
