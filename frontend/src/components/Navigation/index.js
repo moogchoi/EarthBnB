@@ -42,7 +42,7 @@ function Navigation({ isLoaded }) {
     <div className="navTitle">
 
       <NavLink className="EarthBnB" exact to="/">
-        Homebnb
+        EarthBnB
       </NavLink>
 
       <img className="logo" src='https://wow.zamimg.com/uploads/screenshots/normal/611403.jpg' alt='hearthstone'/>
