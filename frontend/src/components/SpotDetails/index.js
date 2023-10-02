@@ -129,19 +129,22 @@ const SpotDetails = () => {
 			</div>
 
 			<div className='reviews'>
-				<span>
+			<span>
 					<h1>
-						<i className='fa-solid fa-star'></i> {spot.avgStarRating}{' '}
+						{isNaN(spot.avgStarRating) ? null : (
+							<>
+								<i className='fa-solid fa-star'></i> {spot.avgStarRating}{' '}
+							</>
+						)}
 						{spot.numReviews > 1 ? (
 							<span>&#x2022; {spot.numReviews} reviews</span>
-
 						) : spot.numReviews === 1 ? (
 							<span>&#x2022; {spot.numReviews} review</span>
 						) : (
 							<span className='reviewBar'>
+								<i className='fa-solid fa-star'>	</i>
 								{' '}
 								New
-
 								<h2>Be the first to post a review!</h2>
 							</span>
 						)}
