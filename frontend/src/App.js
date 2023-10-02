@@ -19,14 +19,24 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && <Switch>
-        <Route exact path='/' component={SpotIndex}></Route>
-        <Route path="/login"></Route>
-        <Route exact path='/spots/new' component={CreateSpotForm}></Route>
-        <Route exact path='/spots/current' component={ManageSpots}></Route>
-        <Route path='/spots/:id/edit' component={EditSpotForm}></Route>
-        <Route path='/spots/:spotId' component={SpotDetails}></Route>
-        <Route path="/signup"></Route>
+      {isLoaded &&
+      <Switch>
+        <Route exact path='/'>
+          <SpotIndex />
+        </Route>
+        <Route exact path='/spots/new'>
+          <CreateSpotForm />
+        </Route>
+        <Route exact path='/spots/current'>
+          <ManageSpots />
+        </Route>
+        <Route path='/spots/:id/edit'>
+          <EditSpotForm />
+        </Route>
+        <Route path='/spots/:spotId'>
+          <SpotDetails />
+        </Route>
+
       </Switch>}
     </>
   );
