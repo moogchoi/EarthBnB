@@ -1,41 +1,31 @@
 import React from "react";
-import './SpotIndex.css';
-import SpotCard from "../SpotCard";
-import { fetchSpots } from "../../store/spots";
-import { Link } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import Tooltip from "../Tooltip";
+import { fetchSpots } from "../../store/spots";
+import SpotCard from "../SpotCard";
+import { Link } from 'react-router-dom';
 
 const SpotIndex = () => {
   const dispatch = useDispatch();
-  const spots = Object.values(useSelector(state => state.spots))
-
+  const spots = Object.values(useSelector(state => state.spots));
 
   useEffect(() => {
     dispatch(fetchSpots());
-  }, [dispatch])
+  }, [dispatch]);
 
   if (!spots) return null;
-  return (
 
-    <div className="SpotsContainer">
+  return (
+    <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-2 xl:p-5">
       {spots.map((spot) => (
-        <div>
-          <Tooltip content={spot.name} direction="top">
-            <Link to={`/spots/${spot.id}`}
-              key={spot.id}>
-              <SpotCard
-                spot={spot}
-                key={spot.id} />
-            </Link>
-          </Tooltip>
+        <div key={spot.id}>
+          <Link to={`/spots/${spot.id}`} key={spot.id}>
+            <SpotCard spot={spot} />
+          </Link>
         </div>
       ))}
     </div>
-
-  )
-
-}
+  );
+};
 
 export default SpotIndex;
