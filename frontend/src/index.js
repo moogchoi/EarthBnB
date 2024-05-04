@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ModalProvider, Modal } from "./context/Modal";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import App from "./App";
 
 import configureStore from "./store";
